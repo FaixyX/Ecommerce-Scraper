@@ -31,15 +31,15 @@ def scrape_category(url, store):
     products = []
     try:
         options = webdriver.ChromeOptions()
-        # options.add_argument(f"--headless=new")
+        options.add_argument(f"--headless=new")
         options.add_argument(f"--user-data-dir={BASE_DIR.absolute()}/user_data_dirs/special/user_data")
 
         driver = webdriver.Chrome(options=options, keep_alive=True)
         
-        print(f'url  : {type(url)}   , {url}')
-        print(f'store: {type(store)} , {store}')
+        # print(f'store: {type(store)} , {store}')
         
         if store == 'Home Shopping': # homeshopping
+            # print('Scraping for Home Shopping')
             tries = 0
             driver.get(url)
             while True:
@@ -68,6 +68,7 @@ def scrape_category(url, store):
                 finally:
                     break
         elif store == 'Priceoye': # priceoye
+            # print('Scraping for Priceoye')
             tries = 0
             driver.get(url)
             # print("[ ] Searching on PriceOye.")
@@ -82,6 +83,7 @@ def scrape_category(url, store):
                         break
                 else:
                     cards = driver.find_elements(By.XPATH, '//div[contains(concat(" ",normalize-space(@class)," ")," product-list ")]//div[contains(concat(" ",normalize-space(@class)," ")," productBox ")]/a')
+                    # print('len of cards in Priceoye', len(cards))
                     for card in cards:
                         link  = card.get_attribute('href')
                         image = card.find_element(By.XPATH, './div[contains(concat(" ",normalize-space(@class)," ")," image-box ")]/amp-img/img').get_attribute('src')
@@ -94,15 +96,17 @@ def scrape_category(url, store):
                             'image': image,
                             'url': link,
                         })
+                        # print('len of products in PriceOye', len(products))
                 finally:
                     break
         elif store == 'Telemart': # telemart
+            # print('Scraping for Telemart')
             tries = 0
             driver.get(url)
             # print("[ ] Searching on Telemart.")
             while True:
                 try:
-                    WebDriverWait(driver, TIMEOUT).until(EC.presence_of_element_located((By.XPATH, '//div[@class="flex-col w-full"]/div[1]')))
+                    WebDriverWait(driver, TIMEOUT).until(EC.presence_of_element_located((By.XPATH, '//*[@id="wrapper"]/div/div[5]/div[1]/div')))
                 except TimeoutException:
                     tries += 1
                     if tries < MAX_TRIES:
@@ -110,27 +114,33 @@ def scrape_category(url, store):
                     else:
                         break
                 else:
-                    cards = driver.find_elements(By.XPATH, '//div[@class="flex-col w-full"]/div[1]/div/a')
+                    cards = driver.find_elements(By.XPATH, '//*[@id="wrapper"]/div/div[5]/div[1]/div/div')
                     for card in cards:
-                        link  = card.get_attribute('href')
-                        detail_box = card.find_element(By.XPATH, './div/a//div[1]')
-                        image = detail_box.find_element(By.XPATH, './/img').get_attribute('src')
-                        title = detail_box.find_element(By.XPATH, './/h4').text
-                        price = card.find_element(By.XPATH, './div/a//div[2]//span[contains(concat(" ",normalize-space(@class)," ")," tracking-tighter ")][1]').text
+                        # print('I am here')
+                        link = card.find_element(By.XPATH, './a').get_attribute('href')
+                        # print('link', link)
+                        image = card.find_element(By.XPATH, './a//img').get_attribute('src')
+                        # print('image', image)
+                        title = card.find_element(By.XPATH, './a//h4[contains(@class, "text-xs")]').text
+                        # print('title', title)
+                        price = card.find_element(By.XPATH, './a//span[contains(@class, "text-green-600")]').text
+                        # print('price', price)
                         products.append({
                             'title': title,
                             'price': extract_price(price),
                             'image': image,
                             'url': link,
                         })
+                    # print('len of products in Telemart', len(products))
                 finally:
                     break
         elif store == 'Daraz': # daraz
+            # print('Scraping for Daraz')
             tries = 0
             driver.get(url)
             while True:
                 try:
-                    WebDriverWait(driver, TIMEOUT).until(EC.presence_of_element_located((By.XPATH, '//a[@id="id-a-link"][last()]')))
+                    WebDriverWait(driver, TIMEOUT).until(EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div/div[3]/div/div/div[1]/div[2]/div//div[@id="id-img"]/img')))
                 except TimeoutException:
                     tries += 1
                     if tries < MAX_TRIES:
@@ -138,21 +148,25 @@ def scrape_category(url, store):
                     else:
                         break
                 else:
-                    cards = driver.find_elements(By.XPATH, '//a[@id="id-a-link"]')
+                    cards = driver.find_elements(By.XPATH, '//*[@id="root"]/div/div[3]/div/div/div[1]/div[2]/div')
+                    # print('len of cards in daraz', len(cards))
                     for card in cards:
-                        description = card.find_element(By.XPATH, './div[2]')
-                        title = description.find_element(By.XPATH, './div[1]').text
-                        price = description.find_element(By.XPATH, './div[@id="id-price"]/div/div[1]').text
-                        image = card.find_element(By.XPATH, './/*[@id="module_item_gallery_1"]/div/div[1]/div[1]/img').get_attribute('src')
-                        link  = urlunparse(urlparse(card.get_attribute('href'))._replace(query=''))
+                        # print('I am here')
+                        title = card.find_element(By.XPATH, './/div[@id="id-title"]').text
+                        price = card.find_element(By.XPATH, './/div[@id="id-price"]//span[contains(@class, "currency--GVKjl")]').text
+                        image = card.find_element(By.XPATH, './/div[@id="id-img"]/img').get_attribute('src')
+                        link = card.find_element(By.XPATH, './/a[@id="id-a-link"]').get_attribute('href')
                         products.append({
                             'title': title,
                             'price': extract_price(price),
                             'image': image,
                             'url': link,
                         })
+                        # print('len of products in daraz', len(products))
                 finally:
                     break
+        else:
+            pass
     except Exception as e:
         print(e)
         raise e
@@ -165,8 +179,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         # Iterate through each sub-category
         for sub_category in SubCategories.objects.all():
-            self.stdout.write(f"Scraping data for sub-category: {sub_category.name}")
-            self.stdout.write(f"url: {sub_category.url}")
+            self.stdout.write(f"Scraping data for sub-category: {sub_category.name}, {sub_category.store}")
             products = scrape_category(sub_category.url, sub_category.store.name)
             for product_data in products:
                 # Check if the product already exists
