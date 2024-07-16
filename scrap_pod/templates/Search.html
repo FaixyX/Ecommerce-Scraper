@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="{% static 'css/Search.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="hamburger-menu" id="hamburger-menu">&#9776;</div>
+      <form class="search-bar" action="{% url 'scrapper-search' %}" method="GET">
+        <input type="text" name='query' placeholder="Search..." />
+        <button type="submit">Search</button>
+      </form>
+      <div class="logo">
+        <li><a href="{% url 'scrapper-home' %}">PricePicker</a></li>
+      </div>
+    </nav>
+
+    <div class="slide-menu" id="slide-menu">
+      <div class="close-btn" id="close-btn">&times;</div>
+      <ul class="menu-items">
+        <!-- Repeat these list items as needed -->
+        <li class="menu-item"><a href="#">Home & lifeStyle</a></li>
+        <li class="menu-item"><a href="#">Health & Beauty</a></li>
+        <li class="menu-item"><a href="#">Men Fashion</a></li>
+        <li class="menu-item"><a href="#">Women's Fashion</a></li>
+        <li class="menu-item"><a href="#">Electronic Devices</a></li>
+        <li class="menu-item"><a href="#">Watches & Bags</a></li>
+      </ul>
+    </div>
+    <div class="Search-result">
+      <h3>{{ search_query }}</h3>
+    </div>
+    <div class="img">
+      <img src="{% static 'assets/RedPIc.jpg' %}" alt="" />
+    </div>
+    <button class="filter-btn"><i class="ri-filter-line"></i>Filter</button>
+    <div class="filter-panel">
+      <button class="close-btn1">&times;</button>
+      <h3>Filter by Price</h3>
+      <div class="price-range">
+        <button data-range="0-all">All</button>
+        <button data-range="0-50">RS.0 - Rs.50</button>
+        <button data-range="50-100">Rs.50 - Rs.100</button>
+        <button data-range="100-200">Rs.100 - Rs.200</button>
+        <button data-range="200-400">Rs.200 - Rs.400</button>
+        <button data-range="400-600">Rs.400 - Rs.600</button>
+        <button data-range="600-800">Rs.600 - Rs.800</button>
+        <button data-range="800-900">Rs.800 - Rs.900</button>
+        <button data-range="1000-2000">Rs.1000 - Rs.2000</button>
+        <button data-range="2000-all">Rs.2000+</button>
+      </div>
+    </div>
+    <div class="overlay"></div>
+
+    <button class="filter-btn" id="sort-btn">
+      <i class="ri-arrow-down-s-line"></i> -Sort
+    </button>
+
+    <div class="sort-panel">
+      <button class="sort-close-btn">&times;</button>
+      <h3>Sort by Price</h3>
+      <div class="sort-options">
+        <label
+          ><input type="radio" name="sort" value="low-to-high" /> Low to
+          High</label
+        >
+        <label
+          ><input type="radio" name="sort" value="high-to-low" /> High to
+          Low</label
+        >
+      </div>
+    </div>
+    <div class="sort-overlay"></div>
+
+    <div class="main-container">
+      <div class="side">
+        <h3>Sort By Price<i class="ri-arrow-down-s-line"></i></h3>
+        <div class="sort-options">
+          <label
+            ><input type="radio" name="sort" value="low-to-high" /> Low to
+            High</label
+          >
+          <label
+            ><input type="radio" name="sort" value="high-to-low" /> High to
+            Low</label
+          >
+        </div>
+        <hr />
+        <h3>Filter By Price<i class="ri-filter-line"></i></h3>
+        <div class="price-range">
+          <button data-range="0-all">All</button>
+          <button data-range="0-50">RS.0 - Rs.50</button>
+          <button data-range="50-100">Rs.50 - Rs.100</button>
+          <button data-range="100-200">Rs.100 - Rs.200</button>
+          <button data-range="200-400">Rs.200 - Rs.400</button>
+          <button data-range="400-600">Rs.400 - Rs.600</button>
+          <button data-range="600-800">Rs.600 - Rs.800</button>
+          <button data-range="800-900">Rs.800 - Rs.900</button>
+          <button data-range="1000-2000">Rs.1000 - Rs.2000</button>
+          <button data-range="2000-all">Rs.2000+</button>
+        </div>
+        <hr />
+      </div>
+      <div class="product-container">
+        {% for product in products %}
+        <div class="product-cart" data-price="{{ product.price }}">
+          <div><span>{{ product.site }}</span></div>
+          <img src="{{ product.img }}" alt="Product {{ forloop.counter }}"/>
+          <p>{{ product.title|truncatechars:24 }}</p>
+          <p class="price"><sup>RS.</sup>{{ product.price }}</p>
+          <button class="visit-btn"><a href="{{ product.link }}">Visit</a></button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <ul class="pagination">
+      <li><a href="#" id="prev">Previous</a></li>
+      <li><a href="#" class="page-number active">1</a></li>
+      <li><a href="#" class="page-number">2</a></li>
+      <li><a href="#" class="page-number">3</a></li>
+      <li><a href="#" class="page-number">4</a></li>
+      <li><a href="#" class="page-number">5</a></li>
+      <li><a href="#" class="page-number">6</a></li>
+      <li><a href="#" id="next">Next</a></li>
+    </ul>
+
+    <hr class="horizontal" />
+
+    <div class="footer">
+      <div class="text">
+        <p>
+          PricePicker. <br />
+          by Hamza&. <br />
+          Daniyal.
+        </p>
+      </div>
+      <div class="text1">
+        PricePicker. <br />
+        <a href="#">Contact US. </a> <br />
+        <a href="#">About US</a>
+      </div>
+    </div>
+
+    <div class="Copy">
+      <p>@CopyRightPricePicker!</p>
+    </div>
+    <div class="login">
+      <a href="Login.html">Login</a>
+      <a href="Register.html">Register</a>
+    </div>
+
+    <script src="{% static 'js/Search.js' %}"></script>
+  </body>
+</html>

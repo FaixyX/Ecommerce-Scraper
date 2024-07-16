@@ -1,0 +1,207 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, serif;
+    background-color: azure;
+  }
+  .main {
+    width: 100%;
+  }
+  .left {
+    margin: 30px 30px;
+  }
+  .left .login {
+    margin-top: 20px;
+  }
+  .left .login a {
+    color: #fff;
+    text-decoration: none;
+    background-color: rgb(9, 9, 9);
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  .head {
+    display: flex;
+    justify-content: space-around;
+  }
+  .head .card {
+    color: #000;
+    font-size: 1.5vw;
+    font-weight: 700;
+  }
+  .head .recent-activity ul li {
+    list-style: none;
+    margin-top: 10px;
+    font-size: 1.5vw;
+  }
+  .head .alerts ul li {
+    list-style: none;
+    margin-top: 10px;
+    font-size: 1.5vw;
+  }
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 0px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+  button {
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    font-size: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .popup-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close-btn:hover,
+  .close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .form-buttons {
+    text-align: right;
+  }
+
+  .form-buttons button {
+    margin-left: 10px;
+    background-color: #007bff;
+  }
+
+  .form-buttons button:hover {
+    background-color: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    .head {
+      flex-direction: column;
+    }
+    .head .card {
+      margin-left: 30px;
+      margin-bottom: 20px;
+      font-size: 5vh;
+    }
+    .head .recent-activity ul li {
+      margin-left: 30px;
+      margin-bottom: 20px;
+      font-size: 5vh;
+    }
+    .head .recent-activity {
+      margin-left: 30px;
+      margin-bottom: 20px;
+      font-size: 5vh;
+    }
+    .head .alerts ul li {
+      margin-left: 30px;
+      margin-bottom: 20px;
+      font-size: 5vh;
+    }
+    .head .alerts {
+      margin-left: 30px;
+      margin-bottom: -30px;
+      font-size: 5vh;
+    }
+    .container {
+      margin: 50px 30px;
+      padding: 0px;
+    }
+  }
+  @media (max-width: 480px) {
+    .head .card {
+      font-size: 3vh;
+    }
+    .head .recent-activity ul li {
+      font-size: 2vh;
+      margin-left: 0;
+    }
+    .head .recent-activity {
+      font-size: 3vh;
+    }
+    .head .alerts ul li {
+      font-size: 2vh;
+      margin-left: 0;
+    }
+    .head .alerts {
+      font-size: 3vh;
+      margin-bottom: -30px;
+    }
+    .container {
+      margin: 50px 10px;
+      padding: 0px;
+    }
+  }

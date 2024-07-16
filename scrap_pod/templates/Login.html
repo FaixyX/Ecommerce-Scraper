@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Form</title>
+        <link rel="stylesheet" href="{% static 'css/Login.css' %}">
+    </head>
+    <body>
+        <div class="login-container">
+            <a href="Home.html">back</a>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <a href="#" id="forgetPassword">Forget Password?</a>
+                </div>
+                <button type="submit">Login</button>
+                <p>Not a member? <a href="Register.html">Register</a></p>
+            </form>
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Login successful!</p>
+            </div>
+        </div>
+
+        <script src="{% static 'js/Login.js' %}"></script>
+    </body>
+</html>

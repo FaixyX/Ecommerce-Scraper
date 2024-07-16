@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="{% static 'css/Home.css' %}" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="hamburger" onclick="openNav()">&#9776;</div>
+        <div class="logo">
+          <h3>PricePicker</h3>
+        </div>
+      </div>
+      <form class="search-bar"  action="{% url 'scrapper-search' %}" method="GET">
+        <input type="text" name="query" placeholder="Search..." />
+        <button type="submit">Search</button>
+      </form>
+      <ul class="navbar-right">
+        <li><a href="Login.html">Login</a></li>
+        <li><a href="Register.html">Register</a></li>
+      </ul>
+    </nav>
+    <div class="box2">
+      <h1 class="main-text">
+        <span class="find">Find</span> the right
+        <span class="product"> product&</span><br />
+        <span>
+          <span class="get">get</span> the best
+          <span class="deal">deal!</span></span
+        >
+      </h1>
+      <img src="{% static 'assets/pic3.png' %}" alt="" />
+    </div>
+   
+
+    <div class="product-container">
+      <div class="cat-product">
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(1)"
+            >Home & lifeStyle</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(2)"
+            >Health & Beauty</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(3)"
+            >Men Fashion</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(4)"
+            >Women's Fashion</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(5)"
+            >Electronic Devices</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(6)"
+            >Watches & Bags</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(7)"
+            >Sport & OutDoor</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(8)"
+            >Electronic Accessories</a
+          >
+        </li>
+      </div>
+      <div class="sub-product" id="sub-product">
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(1)"
+            >Home & lifeStyle</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(2)"
+            >Home&lifeStyle</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(3)"
+            >Home&lifeStyle</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(4)"
+            >Home&lifeStyle</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(5)"
+            >Home&lifeStyle</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(6)"
+            >Home&lifeStyle</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(7)"
+            >Home&lifeStyle</a
+          >
+        </li>
+        <li>
+          <a href="#" class="menu-item" onclick="toggleSubMenu(8)"
+            >Home&lifeStyle</a
+          >
+        </li>
+      </div>
+      <div class="pic">
+        <img src="{% static 'assets/pic2.jpg' %}" alt="loading" />
+      </div>
+    </div>
+    <!-- side bar -->
+
+    <div id="mySidenav" class="sidenav">
+      <div class="blue">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+
+        <h1>
+          Price <br />
+          <span>Picker.</span>
+        </h1>
+      </div>
+      <div class="button">
+        <li><a href="Login.html">Login</a></li>
+        <li><a href="Register.html">Register</a></li>
+      </div>
+
+      <hr />
+      <h6>Categories</h6>
+
+      <a href="javascript:void(0)" onclick="toggleDropdown('homeDropdown')">
+        <span class="icon" style="color: #457eff">&#9733;</span> Home&LifeStyle
+      </a>
+
+      <div id="homeDropdown" class="dropdown-content">
+        <a href="Productlist.html"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span>Subitem 1</a
+        >
+        <hr />
+        <!-- Example icon for Subitem -->
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 2</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 3</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 4</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 5</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 6</a
+        >
+        <hr />
+      </div>
+
+      <a href="javascript:void(0)" onclick="toggleDropdown('aboutDropdown')">
+        <span class="icon" style="color: #457eff">&#9733;</span> Health&Beauty
+      </a>
+
+      <div id="aboutDropdown" class="dropdown-content">
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 1</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 2</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 3</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 4</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 5</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 6</a
+        >
+        <hr />
+      </div>
+
+      <a href="javascript:void(0)" onclick="toggleDropdown('servicesDropdown')">
+        <span class="icon" style="color: #457eff">&#9733;</span> Men Fashion
+      </a>
+
+      <div id="servicesDropdown" class="dropdown-content">
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 1</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 2</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 3</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 4</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 5</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 6</a
+        >
+        <hr />
+      </div>
+
+      <a href="javascript:void(0)" onclick="toggleDropdown('contactDropdown')">
+        <span class="icon" style="color: #457eff">&#9733;</span> Women Fashion
+      </a>
+
+      <div id="contactDropdown" class="dropdown-content">
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 1</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 2</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 3</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 4</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 5</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 6</a
+        >
+        <hr />
+      </div>
+
+      <a href="javascript:void(0)" onclick="toggleDropdown('item5Dropdown')">
+        <span class="icon" style="color: #457eff">&#9733;</span> Electronic
+        Device
+      </a>
+
+      <div id="item5Dropdown" class="dropdown-content">
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 1</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 2</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 3</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 4</a
+        >
+        <hr />
+
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 5</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 6</a
+        >
+        <hr />
+      </div>
+
+      <a href="javascript:void(0)" onclick="toggleDropdown('item6Dropdown')">
+        <span class="icon" style="color: #457eff">&#9733;</span> Watches&Bags
+      </a>
+
+      <div id="item6Dropdown" class="dropdown-content">
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 1</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 2</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 3</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 4</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 5</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 6</a
+        >
+        <hr />
+      </div>
+
+      <a href="javascript:void(0)" onclick="toggleDropdown('item7Dropdown')">
+        <span class="icon" style="color: #457eff">&#9733;</span> Sports&OutDoor
+      </a>
+
+      <div id="item7Dropdown" class="dropdown-content">
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 1</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 2</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 3</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 4</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 5</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 6</a
+        >
+        <hr />
+      </div>
+
+      <a href="javascript:void(0)" onclick="toggleDropdown('item8Dropdown')">
+        <span class="icon" style="color: #457eff">&#9733;</span> Electronic
+        Accessories
+      </a>
+
+      <div
+        id="item8Dropdown"
+        class="dropdown-content"
+        style="margin-bottom: 400px"
+      >
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 1</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 2</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 3</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 4</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 5</a
+        >
+        <hr />
+        <a href="#"
+          ><span class="icon" style="color: #6e90dd">&#9733;</span> Subitem 6</a
+        >
+        <hr />
+      </div>
+
+      <a href="javascript:void(0)" onclick="toggleDropdown('item9Dropdown')">
+      </a>
+      <a href="javascript:void(0)" onclick="toggleDropdown('item9Dropdown')">
+      </a>
+
+      <div id="item9Dropdown" class="dropdown-content">
+        <a href="#"><span class="icon">&#9733;</span> Subitem 1</a>
+        <hr />
+        <a href="#"><span class="icon">&#9733;</span> Subitem 2</a>
+        <hr />
+        <a href="#"><span class="icon">&#9733;</span> Subitem 3</a>
+        <hr />
+        <a href="#"><span class="icon">&#9733;</span> Subitem 4</a>
+        <hr />
+        <a href="#"><span class="icon">&#9733;</span> Subitem 5</a>
+        <hr />
+        <a href="#"><span class="icon">&#9733;</span> Subitem 6</a>
+        <hr />
+      </div>
+    </div>
+    <hr class="horizontal" />
+
+    <div class="footer">
+      <div class="text">
+        <p>
+          PricePicker. <br />
+          by Hamza&. <br />
+          Daniyal.
+        </p>
+      </div>
+      <div class="text1">
+        PricePicker. <br />
+        <a href="#">Contact US.</a> <br />
+        <a href="#">About US</a>
+      </div>
+    </div>
+
+    <div class="Copy">
+      <p>@CopyRightPricePicker!</p>
+    </div>
+
+    <script src="{% static 'js/Home.js' %}"></script>
+  </body>
+</html>

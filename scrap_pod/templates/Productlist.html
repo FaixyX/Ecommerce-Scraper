@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="{% static 'css/Productlist.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"/>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="hamburger-menu" id="hamburger-menu">&#9776;</div>
+      <div class="search-bar">
+        <form>
+          <input type="text" placeholder="Search..." />
+          <button>Search</button>
+        </form>
+      </div>
+      <div class="logo">
+        <li><a href="Home.html">PricePicker</a></li>
+      </div>
+    </nav>
+
+    <div class="slide-menu" id="slide-menu">
+      <div class="close-btn" id="close-btn">&times;</div>
+      <ul class="menu-items">
+        <!-- Repeat these list items as needed -->
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+
+        <!-- Add more menu items here -->
+
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+        <li class="menu-item"><a href="#">Computer components xyz</a></li>
+      </ul>
+    </div>
+    <div class="Search-result">
+      <h3>Wireless Earbuds</h3>
+    </div>
+    <!-- <div class="img">
+      <img src="{% static 'assets/RedPIc.jpg' %}" alt="" />
+    </div> -->
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide"><img src="{% static 'assets/Darazimg.jpg' %}" alt="Slide 1" /></div>
+        <div class="slide"><img src="{% static 'assets/Darazimg2.jpg' %}" alt="Slide 2" /></div>
+        <div class="slide"><img src="{% static 'assets/PriceOye1.jpg' %}" alt="Slide 3" /></div>
+        <div class="slide"><img src="{% static 'assets/telemart1.jpg' %}" alt="Slide 4" /></div>
+        <div class="slide"><img src="{% static 'assets/RedPIc.jpg' %}" alt="Slide 5" /></div>
+        <div class="slide"><img src="{% static 'assets/telemart2.png' %}" alt="Slide 6" /></div>
+        <div class="slide"><img src="{% static 'assets/telemart3.jpg' %}" alt="Slide 6" /></div>
+      </div>
+      <div class="navigation">
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+      </div>
+    </div>
+
+    <button class="filter-btn"><i class="ri-filter-line"></i>Filter</button>
+    <div class="filter-panel">
+      <button class="close-btn1">&times;</button>
+      <h3>Filter by Price</h3>
+      <div class="price-range">
+        <button data-range="0-50">RS.0 - Rs.50</button>
+        <button data-range="50-100">Rs.50 - Rs.100</button>
+        <button data-range="100-200">Rs.100 - Rs.200</button>
+        <button data-range="200-400">Rs.200 - Rs.400</button>
+        <button data-range="400-600">Rs.400 - Rs.600</button>
+        <button data-range="600-800">Rs.600 - Rs.800</button>
+        <button data-range="800-900">Rs.800 - Rs.900</button>
+        <button data-range="1000-2000">Rs.1000 - Rs.2000</button>
+      </div>
+    </div>
+    <div class="overlay"></div>
+
+    <button class="filter-btn" id="sort-btn">
+      <i class="ri-arrow-down-s-line"></i> -Sort
+    </button>
+
+    <div class="sort-panel">
+      <button class="sort-close-btn">&times;</button>
+      <h3>Sort by Price</h3>
+      <div class="sort-options">
+        <label
+          ><input type="radio" name="sort" value="low-to-high" /> Low to
+          High</label
+        >
+        <label
+          ><input type="radio" name="sort" value="high-to-low" /> High to
+          Low</label
+        >
+      </div>
+    </div>
+    <div class="sort-overlay"></div>
+
+    <div class="main-container">
+      <div class="side">
+        <h3>Sort By Price<i class="ri-arrow-down-s-line"></i></h3>
+        <div class="sort-options">
+          <label
+            ><input type="radio" name="sort" value="low-to-high" /> Low to
+            High</label
+          >
+          <label
+            ><input type="radio" name="sort" value="high-to-low" /> High to
+            Low</label
+          >
+        </div>
+        <hr />
+        <h3>Filter By Price<i class="ri-filter-line"></i></h3>
+        <div class="price-range">
+          <button data-range="0-50">RS.0 - Rs.50</button>
+          <button data-range="50-100">Rs.50 - Rs.100</button>
+          <button data-range="100-200">Rs.100 - Rs.200</button>
+          <button data-range="200-400">Rs.200 - Rs.400</button>
+          <button data-range="400-600">Rs.400 - Rs.600</button>
+          <button data-range="600-800">Rs.600 - Rs.800</button>
+          <button data-range="800-900">Rs.800 - Rs.900</button>
+          <button data-range="1000-2000">Rs.1000 - Rs.2000</button>
+        </div>
+        <hr />
+      </div>
+      <div class="product-container">
+        <div class="product-cart" data-price="1100">
+          <img src="https://via.placeholder.com/150" alt="Product 1" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>1100</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="140">
+          <img src="https://via.placeholder.com/150" alt="Product 2" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>140</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="100">
+          <img src="https://via.placeholder.com/150" alt="Product 3" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>100</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="700">
+          <img src="https://via.placeholder.com/150" alt="Product 4" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>700</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="190">
+          <img src="https://via.placeholder.com/150" alt="Product 5" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>190</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="320">
+          <img src="https://via.placeholder.com/150" alt="Product 6" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>320</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="100">
+          <img src="https://via.placeholder.com/150" alt="Product 7" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>100</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="300">
+          <img src="https://via.placeholder.com/150" alt="Product 8" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>300</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="160">
+          <img src="https://via.placeholder.com/150" alt="Product 9" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>160</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="60">
+          <img src="https://via.placeholder.com/150" alt="Product 10" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>60</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="40">
+          <img src="https://via.placeholder.com/150" alt="Product 11" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>40</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="250">
+          <img src="https://via.placeholder.com/150" alt="Product 12" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>250</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="120">
+          <img src="https://via.placeholder.com/150" alt="Product 13" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>120</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="90">
+          <img src="https://via.placeholder.com/150" alt="Product 14" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>90</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="300">
+          <img src="https://via.placeholder.com/150" alt="Product 15" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>300</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+        <div class="product-cart" data-price="200">
+          <img src="https://via.placeholder.com/150" alt="Product 16" />
+          <p>Product 1 Description</p>
+          <p class="price"><sup>RS.</sup>200</p>
+          <button class="checkout-btn"><a href="#">Checkout</a></button>
+        </div>
+      </div>
+    </div>
+
+    <ul class="pagination">
+      <li><a href="#" id="prev">Previous</a></li>
+      <li><a href="#" class="page-number active">1</a></li>
+      <li><a href="#" class="page-number">2</a></li>
+      <li><a href="#" class="page-number">3</a></li>
+      <li><a href="#" class="page-number">4</a></li>
+      <li><a href="#" class="page-number">5</a></li>
+      <li><a href="#" class="page-number">6</a></li>
+      <li><a href="#" id="next">Next</a></li>
+    </ul>
+
+    <hr class="horizontal" />
+
+    <div class="footer">
+      <div class="text">
+        <p>
+          PricePicker. <br />
+          by Hamza&. <br />
+          Daniyal.
+        </p>
+      </div>
+      <div class="text1">
+        PricePicker. <br />
+        <a href="#">Contact US. </a> <br />
+        <a href="#">About US</a>
+      </div>
+    </div>
+
+    <div class="Copy">
+      <p>@CopyRightPricePicker!</p>
+    </div>
+    <div class="login">
+      <a href="Login.html">Login</a>
+      <a href="Register.html">Register</a>
+    </div>
+
+    <script src="{% static 'js/Productlist.js' %}"></script>
+  </body>
+  
+</html>

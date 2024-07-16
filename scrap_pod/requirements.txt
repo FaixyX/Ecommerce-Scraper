@@ -1,0 +1,4 @@
+Django==5.0.6
+selenium==4.22.0
+requests
+bs4
